@@ -14,10 +14,11 @@ public class modcreativemodetabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, updatesuppressionhandler.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> UPDATE_SUPPRESSION_TAB = CREATIVE_MODE_TABS.register("tutorial_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(moditems.TEMPITEM.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(moditems.SUPPRESSOR_ITEM.get()))
                     .title(Component.translatable("creativetab.updatesuppressor_tab"))
                     .displayItems(((pParameters, pOutput) -> {
-                        pOutput.accept(moditems.TEMPITEM.get());
+                        pOutput.accept(moditems.SUPPRESSOR_ITEM.get());
+                        pOutput.accept(moditems.LIGHT_SUPPRESSION_ITEM.get());
                     }))
                     .build());
 

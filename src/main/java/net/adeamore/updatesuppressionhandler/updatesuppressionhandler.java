@@ -45,9 +45,6 @@ public class updatesuppressionhandler
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if(event.getTabKey() == CreativeModeTabs.OP_BLOCKS) {
-            event.accept(moditems.TEMPITEM);
-        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

@@ -53,13 +53,11 @@ public class updatesuppressoritem extends Item{
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         boolean success = false;
-        if(!pContext.getLevel().isClientSide()){
-            BlockPos positionClicked = pContext.getClickedPos();
-            Level lev = pContext.getLevel();
-            BlockEntity b = lev.getBlockEntity(positionClicked);
-            success = setBlock(positionClicked,Blocks.AIR.defaultBlockState(),16, 0, lev);
-            //setBlock(positionClicked,Blocks.AIR.defaultBlockState(),16, 0, l);
-        }
+        BlockPos positionClicked = pContext.getClickedPos();
+        Level lev = pContext.getLevel();
+        BlockEntity b = lev.getBlockEntity(positionClicked);
+        success = setBlock(positionClicked,Blocks.AIR.defaultBlockState(),16, 0, lev);
+        //setBlock(positionClicked,Blocks.AIR.defaultBlockState(),16, 0, l);
 
 
 
@@ -74,9 +72,7 @@ public class updatesuppressoritem extends Item{
             BlockPos pClickedPos = pContext.getClickedPos();
             Level pLev = pContext.getLevel();
             System.out.println("Block update suppressed at: " + String.valueOf(x) + ", " + String.valueOf(y) + ", " + String.valueOf(z) + ". By " + pContext.getPlayer().getName() );
-            pLev.playSound(pPlayer,dx,dy,dz,SoundEvents.NOTE_BLOCK_BELL.get(), MASTER,100f,1f);
-            pPlayer.playSound(SoundEvents.NOTE_BLOCK_BANJO.get(),100f,1f);
-            pLev.playSound(pPlayer,pClickedPos,SoundEvents.NOTE_BLOCK_BANJO.get(), SoundSource.BLOCKS,100f,1f);
+            pPlayer.playSound(SoundEvents.AMETHYST_BLOCK_PLACE,1f,1f);
             return InteractionResult.SUCCESS;
         }else{
             return InteractionResult.FAIL;
